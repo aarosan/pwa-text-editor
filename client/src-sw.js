@@ -42,3 +42,27 @@ registerRoute(
     ],
   })
 );
+
+// self.addEventListener('install', event => {
+//   event.waitUntil(
+//     caches.open('your-cache-name').then(cache => {
+//       return cache.addAll([
+//         '/index.html',
+//       ]);
+//     })
+//   );
+// });
+
+// self.addEventListener('activate', event => {
+//   event.waitUntil(
+//     caches.keys().then(cacheNames => {
+//       return Promise.all(
+//         cacheNames.filter(cacheName => {
+//           return cacheName.startsWith('your-cache-prefix-') && cacheName !== 'your-cache-name';
+//         }).map(cacheName => {
+//           return caches.delete(cacheName);
+//         })
+//       );
+//     })
+//   );
+// });
