@@ -6,6 +6,11 @@ const PORT = process.env.PORT || 3000;
 // Serves static files in the entire client's dist folder
 // dist folder is created with webpack build
 app.use(express.static('../client/dist'));
+
+app.get('/manifest.json', (req, res) => {
+    res.sendFile(path.join(__dirname, '../client/dist/manifest.json'));
+});
+
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 

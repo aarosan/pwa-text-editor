@@ -20,23 +20,24 @@ module.exports = () => {
         template: './index.html',
         title: 'J.A.T.E'
       }),
-
-      new GenerateSW(),
       new WebpackPwaManifest({
         filename: "manifest.json",
         name: "J.A.T.E",
         short_name: "J.A.T.E",
-        description: "A pwa text editor using IndexDB",
+        description: "A pwa text editor using IndexedDB",
         background_color: "#ffffff",
         theme_color: "#ffffff",
         icons: [
           {
-            src: path.resolve('/client/assets/icon.png'),
+            src: path.resolve(__dirname, 'assets/icon.png'),
             sizes: [96, 128, 192, 256, 384, 512],
           },
         ],
       }),
-
+      new InjectManifest({
+        swSrc: './src-sw.js',
+        swDest: 'service-worker.js',
+      })
     ],
 
     module: {
