@@ -2,7 +2,6 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const WebpackPwaManifest = require('webpack-pwa-manifest');
 const path = require('path');
 const { InjectManifest } = require('workbox-webpack-plugin');
-const { GenerateSW } = require('workbox-webpack-plugin');
 
 module.exports = () => {
   return {
@@ -18,26 +17,30 @@ module.exports = () => {
     plugins: [
       new HtmlWebpackPlugin({
         template: './index.html',
-        title: 'J.A.T.E'
-      }),
-      new WebpackPwaManifest({
-        filename: "manifest.json",
-        name: "J.A.T.E",
-        short_name: "J.A.T.E",
-        description: "A pwa text editor using IndexedDB",
-        background_color: "#ffffff",
-        theme_color: "#ffffff",
-        icons: [
-          {
-            src: path.resolve(__dirname, 'assets/icon.png'),
-            sizes: [96, 128, 192, 256, 384, 512],
-          },
-        ],
+        title: 'Just Another Text Editor'
       }),
       new InjectManifest({
         swSrc: './src-sw.js',
         swDest: 'src-sw.js',
-      })
+      }),
+      new WebpackPwaManifest({
+        filename: "manifest.json",
+        name: "Just Another Text Editor",
+        short_name: "J.A.T.E",
+        description: "Take notes with JavaSCript syntax highlighting!",
+        start_url: "./",
+        background_color: "#225ca3",
+        theme_color: "#225ca3",
+        icons: [
+          {
+            src: path.resolve(__dirname, 'src/images/logo.png'),
+            sizes: [96, 128, 192, 256, 384, 512],
+            destination: path.join('assets', 'icons'),
+          },
+        ],
+      }),
+      console.log("__dirname:", __dirname)
+
     ],
 
     module: {

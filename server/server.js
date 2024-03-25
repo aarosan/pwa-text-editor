@@ -11,8 +11,8 @@ app.get('/manifest.json', (req, res) => {
     res.sendFile(path.join(__dirname, '../client/dist/manifest.json'));
 });
 
-app.get('/service-worker.js', (req, res) => {
-    res.sendFile(path.resolve(__dirname, 'dist', 'service-worker.js'));
+app.get('/src-sw.js', (req, res) => {
+    res.sendFile(path.resolve(__dirname, 'dist', 'src-sw.js'));
 });
 
 app.use(express.urlencoded({ extended: true }));
