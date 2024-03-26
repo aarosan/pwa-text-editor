@@ -59,7 +59,7 @@ Navigate to the Root Directory of the project
 
 Run `npm run start`
 
-Navigate to http://localhost:3000/
+Navigate to http://localhost:5000
 
 <a id="screen-shots"></a>
 
